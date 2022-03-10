@@ -16,3 +16,5 @@ unable to upload any .pt models from zenodo due to size limits
 can ignore files in /test_results/ within /outputs/
 
 can ignore files in /outputs/ named in the following way: (shuffled)_adapted_type_letter.csv e.g. adapted_adjunct_a.csv
+
+-all_commands-: contains all the terminal commands used in experiments (preprocessing stimuli, training models, testing models)
