@@ -14,3 +14,5 @@ unable to upload any .pt models from zenodo due to size limits
 --> letter (a/b/c/d/e) corresponds to one of the five zenodo models used in training.
 
 can ignore files in /test_results/ within /outputs/
+
+can ignore files named in the following way: (shuffled)_adapted_type_letter.csv e.g. adapted_adjunct_a_.csv
