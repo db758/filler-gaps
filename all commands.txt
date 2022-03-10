@@ -1,0 +1,892 @@
+tr '^M' '\n' <adjunct_test.txt > adjunct_test_edited.txt
+
+sed "s/'s/ 's/g;s/n't/ n't/g;s/?/ ?/g;" adjunct_test_edited.txt > adjunct_test_toks.txt 
+
+tr '^M' '\n' <adjunct_dev.txt > adjunct_dev_edited.txt
+
+sed "s/'s/ 's/g;s/n't/ n't/g;s/?/ ?/g;" adjunct_dev_edited.txt > adjunct_dev_toks.txt 
+
+tr '^M' '\n' <wh_test.txt > wh_test_edited.txt
+
+sed "s/'s/ 's/g;s/n't/ n't/g;s/?/ ?/g;" wh_test_edited.txt > wh_test_toks.txt 
+
+tr '^M' '\n' <wh_dev.txt > wh_dev_edited.txt
+
+sed "s/'s/ 's/g;s/n't/ n't/g;s/?/ ?/g;" wh_dev_edited.txt > wh_dev_toks.txt 
+
+tr '^M' '\n' <subject_test.txt > subject_test_edited.txt
+
+sed "s/'s/ 's/g;s/n't/ n't/g;s/?/ ?/g;" subject_test_edited.txt > subject_test_toks.txt 
+
+tr '^M' '\n' <subject_dev.txt > subject_dev_edited.txt
+
+sed "s/'s/ 's/g;s/n't/ n't/g;s/?/ ?/g;" subject_dev_edited.txt > subject_dev_toks.txt 
+
+tr '^M' '\n' <object_test.txt > object_test_edited.txt
+
+sed "s/'s/ 's/g;s/n't/ n't/g;s/?/ ?/g;" object_test_edited.txt > object_test_toks.txt 
+
+tr '^M' '\n' <object_dev.txt > object_dev_edited.txt
+
+sed "s/'s/ 's/g;s/n't/ n't/g;s/?/ ?/g;" object_dev_edited.txt > object_dev_toks.txt 
+
+tr '^M' '\n' <leftbranch_test.txt > leftbranch_test_edited.txt
+
+sed "s/'s/ 's/g;s/n't/ n't/g;s/?/ ?/g;" leftbranch_test_edited.txt > leftbranch_test_toks.txt 
+
+tr '^M' '\n' <leftbranch_dev.txt > leftbranch_dev_edited.txt
+
+sed "s/'s/ 's/g;s/n't/ n't/g;s/?/ ?/g;" leftbranch_dev_edited.txt > leftbranch_dev_toks.txt 
+
+tr '^M' '\n' <coordstruct_test.txt > coordstruct_test_edited.txt
+
+sed "s/'s/ 's/g;s/n't/ n't/g;s/?/ ?/g;" coordstruct_test_edited.txt > coordstruct_test_toks.txt 
+
+tr '^M' '\n' <coordstruct_dev.txt > coordstruct_dev_edited.txt
+
+sed "s/'s/ 's/g;s/n't/ n't/g;s/?/ ?/g;" coordstruct_dev_edited.txt > coordstruct_dev_toks.txt 
+
+tr '^M' '\n' <complexnp_test.txt > complexnp_test_edited.txt
+
+sed -f ptb_tokenizer.sed < complexnp_test_edited.txt > complexnp_test_toks.txt
+
+sed "s/'s/ 's/g;s/n't/ n't/g;s/?/ ?/g;" complexnp_test_edited.txt > complexnp_test_toks.txt 
+
+tr '^M' '\n' <complexnp_dev.txt > complexnp_dev_edited.txt
+
+sed -f ptb_tokenizer.sed < complexnp_dev_edited.txt > complexnp_dev_toks.txt
+
+sed "s/'s/ 's/g;s/n't/ n't/g;s/?/ ?/g;" complexnp_dev_edited.txt > complexnp_dev_toks.txt 
+
+tr '^M' '\n' <bridge_test.txt > bridge_test_edited.txt
+
+sed -f ptb_tokenizer.sed < bridge_test_edited.txt > bridge_test_toks.txt
+
+sed "s/'s/ 's/g;s/n't/ n't/g;s/?/ ?/g;" bridge_test_edited.txt > bridge_test_toks.txt 
+
+tr '^M' '\n' <bridge_dev.txt > bridge_dev_edited.txt
+
+sed -f ptb_tokenizer.sed < bridge_dev_edited.txt > bridge_dev_toks.txt
+
+sed "s/'s/ 's/g;s/n't/ n't/g;s/?/ ?/g;" bridge_dev_edited.txt > bridge_dev_toks.txt
+
+
+time python main.py --model_file zenodo1.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname adjunct_test_toks.txt --test --words --nopp > adjunct_a_test_results.csv
+
+time python main.py --model_file zenodo2.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname adjunct_test_toks.txt --test --words --nopp > adjunct_b_test_results.csv
+
+time python main.py --model_file zenodo3.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname adjunct_test_toks.txt --test --words --nopp > adjunct_c_test_results.csv
+
+time python main.py --model_file zenodo4.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname adjunct_test_toks.txt --test --words --nopp > adjunct_d_test_results.csv
+
+time python main.py --model_file zenodo5.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname adjunct_test_toks.txt --test --words --nopp > adjunct_e_test_results.csv
+
+time python main.py --model_file zenodo1.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname wh_test_toks.txt --test --words --nopp > wh_a_test_results.csv
+
+time python main.py --model_file zenodo2.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname wh_test_toks.txt --test --words --nopp > wh_b_test_results.csv
+
+time python main.py --model_file zenodo3.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname wh_test_toks.txt --test --words --nopp > wh_c_test_results.csv
+
+time python main.py --model_file zenodo4.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname wh_test_toks.txt --test --words --nopp > wh_d_test_results.csv
+
+time python main.py --model_file zenodo5.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname wh_test_toks.txt --test --words --nopp > wh_e_test_results.csv
+
+time python main.py --model_file zenodo1.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname subject_test_toks.txt --test --words --nopp > subject_a_test_results.csv
+
+time python main.py --model_file zenodo2.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname subject_test_toks.txt --test --words --nopp > subject_b_test_results.csv
+
+time python main.py --model_file zenodo3.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname subject_test_toks.txt --test --words --nopp > subject_c_test_results.csv
+
+time python main.py --model_file zenodo4.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname subject_test_toks.txt --test --words --nopp > subject_d_test_results.csv
+
+time python main.py --model_file zenodo5.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname subject_test_toks.txt --test --words --nopp > subject_e_test_results.csv
+
+time python main.py --model_file zenodo1.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname object_test_toks.txt --test --words --nopp > object_a_test_results.csv
+
+time python main.py --model_file zenodo2.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname object_test_toks.txt --test --words --nopp > object_b_test_results.csv
+
+time python main.py --model_file zenodo3.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname object_test_toks.txt --test --words --nopp > object_c_test_results.csv
+
+time python main.py --model_file zenodo4.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname object_test_toks.txt --test --words --nopp > object_d_test_results.csv
+
+time python main.py --model_file zenodo5.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname object_test_toks.txt --test --words --nopp > object_e_test_results.csv
+
+time python main.py --model_file zenodo1.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname leftbranch_test_toks.txt --test --words --nopp > leftbranch_a_test_results.csv
+
+time python main.py --model_file zenodo2.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname leftbranch_test_toks.txt --test --words --nopp > leftbranch_b_test_results.csv
+
+time python main.py --model_file zenodo3.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname leftbranch_test_toks.txt --test --words --nopp > leftbranch_c_test_results.csv
+
+time python main.py --model_file zenodo4.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname leftbranch_test_toks.txt --test --words --nopp > leftbranch_d_test_results.csv
+
+time python main.py --model_file zenodo5.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname leftbranch_test_toks.txt --test --words --nopp > leftbranch_e_test_results.csv
+
+time python main.py --model_file zenodo1.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname coordstruct_test_toks.txt --test --words --nopp > coordstruct_a_test_results.csv
+
+time python main.py --model_file zenodo2.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname coordstruct_test_toks.txt --test --words --nopp > coordstruct_b_test_results.csv
+
+time python main.py --model_file zenodo3.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname coordstruct_test_toks.txt --test --words --nopp > coordstruct_c_test_results.csv
+
+time python main.py --model_file zenodo4.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname coordstruct_test_toks.txt --test --words --nopp > coordstruct_d_test_results.csv
+
+time python main.py --model_file zenodo5.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname coordstruct_test_toks.txt --test --words --nopp > coordstruct_e_test_results.csv
+
+time python main.py --model_file zenodo1.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname complexnp_test_toks.txt --test --words --nopp > complexnp_a_test_results.csv
+
+time python main.py --model_file zenodo2.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname complexnp_test_toks.txt --test --words --nopp > complexnp_b_test_results.csv
+
+time python main.py --model_file zenodo3.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname complexnp_test_toks.txt --test --words --nopp > complexnp_c_test_results.csv
+
+time python main.py --model_file zenodo4.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname complexnp_test_toks.txt --test --words --nopp > complexnp_d_test_results.csv
+
+time python main.py --model_file zenodo5.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname complexnp_test_toks.txt --test --words --nopp > complexnp_e_test_results.csv
+
+time python main.py --model_file zenodo1.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname bridge_test_toks.txt --test --words --nopp > bridge_a_test_results.csv
+
+time python main.py --model_file zenodo2.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname bridge_test_toks.txt --test --words --nopp > bridge_b_test_results.csv
+
+time python main.py --model_file zenodo3.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname bridge_test_toks.txt --test --words --nopp > bridge_c_test_results.csv
+
+time python main.py --model_file zenodo4.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname bridge_test_toks.txt --test --words --nopp > bridge_d_test_results.csv
+
+time python main.py --model_file zenodo5.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname bridge_test_toks.txt --test --words --nopp > bridge_e_test_results.csv
+
+
+time python main.py --model_file zenodo1.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname adjunct_dev_toks.txt --test --words --adapt --adapted_model 'adapted_adjunct_a.pt' > adapted_adjunct_a.csv
+
+time python main.py --model_file zenodo2.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname adjunct_dev_toks.txt --test --words --adapt --adapted_model 'adapted_adjunct_b.pt' > adapted_adjunct_b.csv
+
+time python main.py --model_file zenodo3.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname adjunct_dev_toks.txt --test --words --adapt --adapted_model 'adapted_adjunct_c.pt' > adapted_adjunct_c.csv
+
+time python main.py --model_file zenodo4.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname adjunct_dev_toks.txt --test --words --adapt --adapted_model 'adapted_adjunct_d.pt' > adapted_adjunct_d.csv
+
+time python main.py --model_file zenodo5.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname adjunct_dev_toks.txt --test --words --adapt --adapted_model 'adapted_adjunct_e.pt' > adapted_adjunct_e.csv
+
+time python main.py --model_file zenodo1.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname wh_dev_toks.txt --test --words --adapt --adapted_model 'adapted_wh_a.pt' > adapted_wh_a.csv
+
+time python main.py --model_file zenodo2.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname wh_dev_toks.txt --test --words --adapt --adapted_model 'adapted_wh_b.pt' > adapted_wh_b.csv
+
+time python main.py --model_file zenodo3.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname wh_dev_toks.txt --test --words --adapt --adapted_model 'adapted_wh_c.pt' > adapted_wh_c.csv
+
+time python main.py --model_file zenodo4.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname wh_dev_toks.txt --test --words --adapt --adapted_model 'adapted_wh_d.pt' > adapted_wh_d.csv
+
+time python main.py --model_file zenodo5.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname wh_dev_toks.txt --test --words --adapt --adapted_model 'adapted_wh_e.pt' > adapted_wh_e.csv
+
+time python main.py --model_file zenodo1.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname subject_dev_toks.txt --test --words --adapt --adapted_model 'adapted_subject_a.pt' > adapted_subject_a.csv
+
+time python main.py --model_file zenodo2.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname subject_dev_toks.txt --test --words --adapt --adapted_model 'adapted_subject_b.pt' > adapted_subject_b.csv
+
+time python main.py --model_file zenodo3.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname subject_dev_toks.txt --test --words --adapt --adapted_model 'adapted_subject_c.pt' > adapted_subject_c.csv
+
+time python main.py --model_file zenodo4.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname subject_dev_toks.txt --test --words --adapt --adapted_model 'adapted_subject_d.pt' > adapted_subject_d.csv
+
+time python main.py --model_file zenodo5.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname subject_dev_toks.txt --test --words --adapt --adapted_model 'adapted_subject_e.pt' > adapted_subject_e.csv
+
+time python main.py --model_file zenodo1.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname object_dev_toks.txt --test --words --adapt --adapted_model 'adapted_object_a.pt' > adapted_object_a.csv
+
+time python main.py --model_file zenodo2.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname object_dev_toks.txt --test --words --adapt --adapted_model 'adapted_object_b.pt' > adapted_object_b.csv
+
+time python main.py --model_file zenodo3.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname object_dev_toks.txt --test --words --adapt --adapted_model 'adapted_object_c.pt' > adapted_object_c.csv
+
+time python main.py --model_file zenodo4.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname object_dev_toks.txt --test --words --adapt --adapted_model 'adapted_object_d.pt' > adapted_object_d.csv
+
+time python main.py --model_file zenodo5.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname object_dev_toks.txt --test --words --adapt --adapted_model 'adapted_object_e.pt' > adapted_object_e.csv
+
+time python main.py --model_file zenodo1.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname leftbranch_dev_toks.txt --test --words --adapt --adapted_model 'adapted_leftbranch_a.pt' > adapted_leftbranch_a.csv
+
+time python main.py --model_file zenodo2.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname leftbranch_dev_toks.txt --test --words --adapt --adapted_model 'adapted_leftbranch_b.pt' > adapted_leftbranch_b.csv
+
+time python main.py --model_file zenodo3.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname leftbranch_dev_toks.txt --test --words --adapt --adapted_model 'adapted_leftbranch_c.pt' > adapted_leftbranch_c.csv
+
+time python main.py --model_file zenodo4.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname leftbranch_dev_toks.txt --test --words --adapt --adapted_model 'adapted_leftbranch_d.pt' > adapted_leftbranch_d.csv
+
+time python main.py --model_file zenodo5.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname leftbranch_dev_toks.txt --test --words --adapt --adapted_model 'adapted_leftbranch_e.pt' > adapted_leftbranch_e.csv
+
+time python main.py --model_file zenodo1.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname coordstruct_dev_toks.txt --test --words --adapt --adapted_model 'adapted_coordstruct_a.pt' > adapted_coordstruct_a.csv
+
+time python main.py --model_file zenodo2.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname coordstruct_dev_toks.txt --test --words --adapt --adapted_model 'adapted_coordstruct_b.pt' > adapted_coordstruct_b.csv
+
+time python main.py --model_file zenodo3.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname coordstruct_dev_toks.txt --test --words --adapt --adapted_model 'adapted_coordstruct_c.pt' > adapted_coordstruct_c.csv
+
+time python main.py --model_file zenodo4.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname coordstruct_dev_toks.txt --test --words --adapt --adapted_model 'adapted_coordstruct_d.pt' > adapted_coordstruct_d.csv
+
+time python main.py --model_file zenodo5.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname coordstruct_dev_toks.txt --test --words --adapt --adapted_model 'adapted_coordstruct_e.pt' > adapted_coordstruct_e.csv
+
+time python main.py --model_file zenodo1.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname complexnp_dev_toks.txt --test --words --adapt --adapted_model 'adapted_complexnp_a.pt' > adapted_complexnp_a.csv
+
+time python main.py --model_file zenodo2.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname complexnp_dev_toks.txt --test --words --adapt --adapted_model 'adapted_complexnp_b.pt' > adapted_complexnp_b.csv
+
+time python main.py --model_file zenodo3.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname complexnp_dev_toks.txt --test --words --adapt --adapted_model 'adapted_complexnp_c.pt' > adapted_complexnp_c.csv
+
+time python main.py --model_file zenodo4.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname complexnp_dev_toks.txt --test --words --adapt --adapted_model 'adapted_complexnp_d.pt' > adapted_complexnp_d.csv
+
+time python main.py --model_file zenodo5.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname complexnp_dev_toks.txt --test --words --adapt --adapted_model 'adapted_complexnp_e.pt' > adapted_complexnp_e.csv
+
+time python main.py --model_file zenodo1.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname bridge_dev_toks.txt --test --words --adapt --adapted_model 'adapted_bridge_a.pt' > adapted_bridge_a.csv
+
+time python main.py --model_file zenodo2.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname bridge_dev_toks.txt --test --words --adapt --adapted_model 'adapted_bridge_b.pt' > adapted_bridge_b.csv
+
+time python main.py --model_file zenodo3.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname bridge_dev_toks.txt --test --words --adapt --adapted_model 'adapted_bridge_c.pt' > adapted_bridge_c.csv
+
+time python main.py --model_file zenodo4.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname bridge_dev_toks.txt --test --words --adapt --adapted_model 'adapted_bridge_d.pt' > adapted_bridge_d.csv
+
+time python main.py --model_file zenodo5.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname bridge_dev_toks.txt --test --words --adapt --adapted_model 'adapted_bridge_e.pt' > adapted_bridge_e.csv
+
+
+time python main.py --model_file adapted_adjunct_a.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname adjunct_test_toks.txt --test --words --nopp > adjunct_adjunct_a.csv
+
+time python main.py --model_file adapted_adjunct_b.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname adjunct_test_toks.txt --test --words --nopp > adjunct_adjunct_b.csv
+
+time python main.py --model_file adapted_adjunct_c.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname adjunct_test_toks.txt --test --words --nopp > adjunct_adjunct_c.csv
+
+time python main.py --model_file adapted_adjunct_d.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname adjunct_test_toks.txt --test --words --nopp > adjunct_adjunct_d.csv
+
+time python main.py --model_file adapted_adjunct_e.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname adjunct_test_toks.txt --test --words --nopp > adjunct_adjunct_e.csv
+
+time python main.py --model_file adapted_adjunct_a.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname wh_test_toks.txt --test --words --nopp > adjunct_wh_a.csv
+
+time python main.py --model_file adapted_adjunct_b.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname wh_test_toks.txt --test --words --nopp > adjunct_wh_b.csv
+
+time python main.py --model_file adapted_adjunct_c.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname wh_test_toks.txt --test --words --nopp > adjunct_wh_c.csv
+
+time python main.py --model_file adapted_adjunct_d.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname wh_test_toks.txt --test --words --nopp > adjunct_wh_d.csv
+
+time python main.py --model_file adapted_adjunct_e.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname wh_test_toks.txt --test --words --nopp > adjunct_wh_e.csv
+
+time python main.py --model_file adapted_adjunct_a.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname subject_test_toks.txt --test --words --nopp > adjunct_subject_a.csv
+
+time python main.py --model_file adapted_adjunct_b.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname subject_test_toks.txt --test --words --nopp > adjunct_subject_b.csv
+
+time python main.py --model_file adapted_adjunct_c.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname subject_test_toks.txt --test --words --nopp > adjunct_subject_c.csv
+
+time python main.py --model_file adapted_adjunct_d.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname subject_test_toks.txt --test --words --nopp > adjunct_subject_d.csv
+
+time python main.py --model_file adapted_adjunct_e.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname subject_test_toks.txt --test --words --nopp > adjunct_subject_e.csv
+
+time python main.py --model_file adapted_adjunct_a.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname object_test_toks.txt --test --words --nopp > adjunct_object_a.csv
+
+time python main.py --model_file adapted_adjunct_b.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname object_test_toks.txt --test --words --nopp > adjunct_object_b.csv
+
+time python main.py --model_file adapted_adjunct_c.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname object_test_toks.txt --test --words --nopp > adjunct_object_c.csv
+
+time python main.py --model_file adapted_adjunct_d.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname object_test_toks.txt --test --words --nopp > adjunct_object_d.csv
+
+time python main.py --model_file adapted_adjunct_e.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname object_test_toks.txt --test --words --nopp > adjunct_object_e.csv
+
+time python main.py --model_file adapted_adjunct_a.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname leftbranch_test_toks.txt --test --words --nopp > adjunct_leftbranch_a.csv
+
+time python main.py --model_file adapted_adjunct_b.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname leftbranch_test_toks.txt --test --words --nopp > adjunct_leftbranch_b.csv
+
+time python main.py --model_file adapted_adjunct_c.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname leftbranch_test_toks.txt --test --words --nopp > adjunct_leftbranch_c.csv
+
+time python main.py --model_file adapted_adjunct_d.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname leftbranch_test_toks.txt --test --words --nopp > adjunct_leftbranch_d.csv
+
+time python main.py --model_file adapted_adjunct_e.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname leftbranch_test_toks.txt --test --words --nopp > adjunct_leftbranch_e.csv
+
+time python main.py --model_file adapted_adjunct_a.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname coordstruct_test_toks.txt --test --words --nopp > adjunct_coordstruct_a.csv
+
+time python main.py --model_file adapted_adjunct_b.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname coordstruct_test_toks.txt --test --words --nopp > adjunct_coordstruct_b.csv
+
+time python main.py --model_file adapted_adjunct_c.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname coordstruct_test_toks.txt --test --words --nopp > adjunct_coordstruct_c.csv
+
+time python main.py --model_file adapted_adjunct_d.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname coordstruct_test_toks.txt --test --words --nopp > adjunct_coordstruct_d.csv
+
+time python main.py --model_file adapted_adjunct_e.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname coordstruct_test_toks.txt --test --words --nopp > adjunct_coordstruct_e.csv
+
+time python main.py --model_file adapted_adjunct_a.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname complexnp_test_toks.txt --test --words --nopp > adjunct_complexnp_a.csv
+
+time python main.py --model_file adapted_adjunct_b.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname complexnp_test_toks.txt --test --words --nopp > adjunct_complexnp_b.csv
+
+time python main.py --model_file adapted_adjunct_c.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname complexnp_test_toks.txt --test --words --nopp > adjunct_complexnp_c.csv
+
+time python main.py --model_file adapted_adjunct_d.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname complexnp_test_toks.txt --test --words --nopp > adjunct_complexnp_d.csv
+
+time python main.py --model_file adapted_adjunct_e.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname complexnp_test_toks.txt --test --words --nopp > adjunct_complexnp_e.csv
+
+time python main.py --model_file adapted_adjunct_a.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname bridge_test_toks.txt --test --words --nopp > adjunct_bridge_a.csv
+
+time python main.py --model_file adapted_adjunct_b.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname bridge_test_toks.txt --test --words --nopp > adjunct_bridge_b.csv
+
+time python main.py --model_file adapted_adjunct_c.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname bridge_test_toks.txt --test --words --nopp > adjunct_bridge_c.csv
+
+time python main.py --model_file adapted_adjunct_d.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname bridge_test_toks.txt --test --words --nopp > adjunct_bridge_d.csv
+
+time python main.py --model_file adapted_adjunct_e.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname bridge_test_toks.txt --test --words --nopp > adjunct_bridge_e.csv
+
+
+time python main.py --model_file adapted_wh_a.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname adjunct_test_toks.txt --test --words --nopp > wh_adjunct_a.csv
+
+time python main.py --model_file adapted_wh_b.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname adjunct_test_toks.txt --test --words --nopp > wh_adjunct_b.csv
+
+time python main.py --model_file adapted_wh_c.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname adjunct_test_toks.txt --test --words --nopp > wh_adjunct_c.csv
+
+time python main.py --model_file adapted_wh_d.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname adjunct_test_toks.txt --test --words --nopp > wh_adjunct_d.csv
+
+time python main.py --model_file adapted_wh_e.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname adjunct_test_toks.txt --test --words --nopp > wh_adjunct_e.csv
+
+time python main.py --model_file adapted_wh_a.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname wh_test_toks.txt --test --words --nopp > wh_wh_a.csv
+
+time python main.py --model_file adapted_wh_b.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname wh_test_toks.txt --test --words --nopp > wh_wh_b.csv
+
+time python main.py --model_file adapted_wh_c.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname wh_test_toks.txt --test --words --nopp > wh_wh_c.csv
+
+time python main.py --model_file adapted_wh_d.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname wh_test_toks.txt --test --words --nopp > wh_wh_d.csv
+
+time python main.py --model_file adapted_wh_e.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname wh_test_toks.txt --test --words --nopp > wh_wh_e.csv
+
+time python main.py --model_file adapted_wh_a.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname subject_test_toks.txt --test --words --nopp > wh_subject_a.csv
+
+time python main.py --model_file adapted_wh_b.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname subject_test_toks.txt --test --words --nopp > wh_subject_b.csv
+
+time python main.py --model_file adapted_wh_c.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname subject_test_toks.txt --test --words --nopp > wh_subject_c.csv
+
+time python main.py --model_file adapted_wh_d.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname subject_test_toks.txt --test --words --nopp > wh_subject_d.csv
+
+time python main.py --model_file adapted_wh_e.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname subject_test_toks.txt --test --words --nopp > wh_subject_e.csv
+
+time python main.py --model_file adapted_wh_a.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname object_test_toks.txt --test --words --nopp > wh_object_a.csv
+
+time python main.py --model_file adapted_wh_b.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname object_test_toks.txt --test --words --nopp > wh_object_b.csv
+
+time python main.py --model_file adapted_wh_c.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname object_test_toks.txt --test --words --nopp > wh_object_c.csv
+
+time python main.py --model_file adapted_wh_d.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname object_test_toks.txt --test --words --nopp > wh_object_d.csv
+
+time python main.py --model_file adapted_wh_e.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname object_test_toks.txt --test --words --nopp > wh_object_e.csv
+
+time python main.py --model_file adapted_wh_a.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname leftbranch_test_toks.txt --test --words --nopp > wh_leftbranch_a.csv
+
+time python main.py --model_file adapted_wh_b.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname leftbranch_test_toks.txt --test --words --nopp > wh_leftbranch_b.csv
+
+time python main.py --model_file adapted_wh_c.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname leftbranch_test_toks.txt --test --words --nopp > wh_leftbranch_c.csv
+
+time python main.py --model_file adapted_wh_d.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname leftbranch_test_toks.txt --test --words --nopp > wh_leftbranch_d.csv
+
+time python main.py --model_file adapted_wh_e.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname leftbranch_test_toks.txt --test --words --nopp > wh_leftbranch_e.csv
+
+time python main.py --model_file adapted_wh_a.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname coordstruct_test_toks.txt --test --words --nopp > wh_coordstruct_a.csv
+
+time python main.py --model_file adapted_wh_b.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname coordstruct_test_toks.txt --test --words --nopp > wh_coordstruct_b.csv
+
+time python main.py --model_file adapted_wh_c.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname coordstruct_test_toks.txt --test --words --nopp > wh_coordstruct_c.csv
+
+time python main.py --model_file adapted_wh_d.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname coordstruct_test_toks.txt --test --words --nopp > wh_coordstruct_d.csv
+
+time python main.py --model_file adapted_wh_e.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname coordstruct_test_toks.txt --test --words --nopp > wh_coordstruct_e.csv
+
+time python main.py --model_file adapted_wh_a.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname complexnp_test_toks.txt --test --words --nopp > wh_complexnp_a.csv
+
+time python main.py --model_file adapted_wh_b.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname complexnp_test_toks.txt --test --words --nopp > wh_complexnp_b.csv
+
+time python main.py --model_file adapted_wh_c.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname complexnp_test_toks.txt --test --words --nopp > wh_complexnp_c.csv
+
+time python main.py --model_file adapted_wh_d.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname complexnp_test_toks.txt --test --words --nopp > wh_complexnp_d.csv
+
+time python main.py --model_file adapted_wh_e.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname complexnp_test_toks.txt --test --words --nopp > wh_complexnp_e.csv
+
+time python main.py --model_file adapted_wh_a.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname bridge_test_toks.txt --test --words --nopp > wh_bridge_a.csv
+
+time python main.py --model_file adapted_wh_b.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname bridge_test_toks.txt --test --words --nopp > wh_bridge_b.csv
+
+time python main.py --model_file adapted_wh_c.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname bridge_test_toks.txt --test --words --nopp > wh_bridge_c.csv
+
+time python main.py --model_file adapted_wh_d.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname bridge_test_toks.txt --test --words --nopp > wh_bridge_d.csv
+
+time python main.py --model_file adapted_wh_e.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname bridge_test_toks.txt --test --words --nopp > wh_bridge_e.csv
+
+
+time python main.py --model_file adapted_object_a.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname adjunct_test_toks.txt --test --words --nopp > object_adjunct_a.csv
+
+time python main.py --model_file adapted_object_b.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname adjunct_test_toks.txt --test --words --nopp > object_adjunct_b.csv
+
+time python main.py --model_file adapted_object_c.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname adjunct_test_toks.txt --test --words --nopp > object_adjunct_c.csv
+
+time python main.py --model_file adapted_object_d.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname adjunct_test_toks.txt --test --words --nopp > object_adjunct_d.csv
+
+time python main.py --model_file adapted_object_e.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname adjunct_test_toks.txt --test --words --nopp > object_adjunct_e.csv
+
+time python main.py --model_file adapted_object_a.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname wh_test_toks.txt --test --words --nopp > object_wh_a.csv
+
+time python main.py --model_file adapted_object_b.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname wh_test_toks.txt --test --words --nopp > object_wh_b.csv
+
+time python main.py --model_file adapted_object_c.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname wh_test_toks.txt --test --words --nopp > object_wh_c.csv
+
+time python main.py --model_file adapted_object_d.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname wh_test_toks.txt --test --words --nopp > object_wh_d.csv
+
+time python main.py --model_file adapted_object_e.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname wh_test_toks.txt --test --words --nopp > object_wh_e.csv
+
+time python main.py --model_file adapted_object_a.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname subject_test_toks.txt --test --words --nopp > object_subject_a.csv
+
+time python main.py --model_file adapted_object_b.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname subject_test_toks.txt --test --words --nopp > object_subject_b.csv
+
+time python main.py --model_file adapted_object_c.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname subject_test_toks.txt --test --words --nopp > object_subject_c.csv
+
+time python main.py --model_file adapted_object_d.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname subject_test_toks.txt --test --words --nopp > object_subject_d.csv
+
+time python main.py --model_file adapted_object_e.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname subject_test_toks.txt --test --words --nopp > object_subject_e.csv
+
+time python main.py --model_file adapted_object_a.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname object_test_toks.txt --test --words --nopp > object_object_a.csv
+
+time python main.py --model_file adapted_object_b.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname object_test_toks.txt --test --words --nopp > object_object_b.csv
+
+time python main.py --model_file adapted_object_c.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname object_test_toks.txt --test --words --nopp > object_object_c.csv
+
+time python main.py --model_file adapted_object_d.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname object_test_toks.txt --test --words --nopp > object_object_d.csv
+
+time python main.py --model_file adapted_object_e.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname object_test_toks.txt --test --words --nopp > object_object_e.csv
+
+time python main.py --model_file adapted_object_a.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname leftbranch_test_toks.txt --test --words --nopp > object_leftbranch_a.csv
+
+time python main.py --model_file adapted_object_b.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname leftbranch_test_toks.txt --test --words --nopp > object_leftbranch_b.csv
+
+time python main.py --model_file adapted_object_c.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname leftbranch_test_toks.txt --test --words --nopp > object_leftbranch_c.csv
+
+time python main.py --model_file adapted_object_d.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname leftbranch_test_toks.txt --test --words --nopp > object_leftbranch_d.csv
+
+time python main.py --model_file adapted_object_e.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname leftbranch_test_toks.txt --test --words --nopp > object_leftbranch_e.csv
+
+time python main.py --model_file adapted_object_a.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname coordstruct_test_toks.txt --test --words --nopp > object_coordstruct_a.csv
+
+time python main.py --model_file adapted_object_b.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname coordstruct_test_toks.txt --test --words --nopp > object_coordstruct_b.csv
+
+time python main.py --model_file adapted_object_c.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname coordstruct_test_toks.txt --test --words --nopp > object_coordstruct_c.csv
+
+time python main.py --model_file adapted_object_d.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname coordstruct_test_toks.txt --test --words --nopp > object_coordstruct_d.csv
+
+time python main.py --model_file adapted_object_e.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname coordstruct_test_toks.txt --test --words --nopp > object_coordstruct_e.csv
+
+time python main.py --model_file adapted_object_a.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname complexnp_test_toks.txt --test --words --nopp > object_complexnp_a.csv
+
+time python main.py --model_file adapted_object_b.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname complexnp_test_toks.txt --test --words --nopp > object_complexnp_b.csv
+
+time python main.py --model_file adapted_object_c.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname complexnp_test_toks.txt --test --words --nopp > object_complexnp_c.csv
+
+time python main.py --model_file adapted_object_d.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname complexnp_test_toks.txt --test --words --nopp > object_complexnp_d.csv
+
+time python main.py --model_file adapted_object_e.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname complexnp_test_toks.txt --test --words --nopp > object_complexnp_e.csv
+
+time python main.py --model_file adapted_object_a.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname bridge_test_toks.txt --test --words --nopp > object_bridge_a.csv
+
+time python main.py --model_file adapted_object_b.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname bridge_test_toks.txt --test --words --nopp > object_bridge_b.csv
+
+time python main.py --model_file adapted_object_c.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname bridge_test_toks.txt --test --words --nopp > object_bridge_c.csv
+
+time python main.py --model_file adapted_object_d.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname bridge_test_toks.txt --test --words --nopp > object_bridge_d.csv
+
+time python main.py --model_file adapted_object_e.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname bridge_test_toks.txt --test --words --nopp > object_bridge_e.csv
+
+time python main.py --model_file adapted_object_a.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname adjunct_test_toks.txt --test --words --nopp > object_adjunct_a.csv
+
+time python main.py --model_file adapted_subject_b.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname adjunct_test_toks.txt --test --words --nopp > subject_adjunct_b.csv
+
+time python main.py --model_file adapted_subject_c.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname adjunct_test_toks.txt --test --words --nopp > subject_adjunct_c.csv
+
+time python main.py --model_file adapted_subject_d.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname adjunct_test_toks.txt --test --words --nopp > subject_adjunct_d.csv
+
+time python main.py --model_file adapted_subject_e.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname adjunct_test_toks.txt --test --words --nopp > subject_adjunct_e.csv
+
+time python main.py --model_file adapted_subject_a.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname wh_test_toks.txt --test --words --nopp > subject_wh_a.csv
+
+time python main.py --model_file adapted_subject_b.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname wh_test_toks.txt --test --words --nopp > subject_wh_b.csv
+
+time python main.py --model_file adapted_subject_c.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname wh_test_toks.txt --test --words --nopp > subject_wh_c.csv
+
+time python main.py --model_file adapted_subject_d.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname wh_test_toks.txt --test --words --nopp > subject_wh_d.csv
+
+time python main.py --model_file adapted_subject_e.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname wh_test_toks.txt --test --words --nopp > subject_wh_e.csv
+
+time python main.py --model_file adapted_subject_a.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname subject_test_toks.txt --test --words --nopp > subject_subject_a.csv
+
+time python main.py --model_file adapted_subject_b.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname subject_test_toks.txt --test --words --nopp > subject_subject_b.csv
+
+time python main.py --model_file adapted_subject_c.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname subject_test_toks.txt --test --words --nopp > subject_subject_c.csv
+
+time python main.py --model_file adapted_subject_d.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname subject_test_toks.txt --test --words --nopp > subject_subject_d.csv
+
+time python main.py --model_file adapted_subject_e.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname subject_test_toks.txt --test --words --nopp > subject_subject_e.csv
+
+time python main.py --model_file adapted_subject_a.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname object_test_toks.txt --test --words --nopp > subject_object_a.csv
+
+time python main.py --model_file adapted_subject_b.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname object_test_toks.txt --test --words --nopp > subject_object_b.csv
+
+time python main.py --model_file adapted_subject_c.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname object_test_toks.txt --test --words --nopp > subject_object_c.csv
+
+time python main.py --model_file adapted_subject_d.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname object_test_toks.txt --test --words --nopp > subject_object_d.csv
+
+time python main.py --model_file adapted_subject_e.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname object_test_toks.txt --test --words --nopp > subject_object_e.csv
+
+time python main.py --model_file adapted_subject_a.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname leftbranch_test_toks.txt --test --words --nopp > subject_leftbranch_a.csv
+
+time python main.py --model_file adapted_subject_b.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname leftbranch_test_toks.txt --test --words --nopp > subject_leftbranch_b.csv
+
+time python main.py --model_file adapted_subject_c.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname leftbranch_test_toks.txt --test --words --nopp > subject_leftbranch_c.csv
+
+time python main.py --model_file adapted_subject_d.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname leftbranch_test_toks.txt --test --words --nopp > subject_leftbranch_d.csv
+
+time python main.py --model_file adapted_subject_e.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname leftbranch_test_toks.txt --test --words --nopp > subject_leftbranch_e.csv
+
+time python main.py --model_file adapted_subject_a.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname coordstruct_test_toks.txt --test --words --nopp > subject_coordstruct_a.csv
+
+time python main.py --model_file adapted_subject_b.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname coordstruct_test_toks.txt --test --words --nopp > subject_coordstruct_b.csv
+
+time python main.py --model_file adapted_subject_c.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname coordstruct_test_toks.txt --test --words --nopp > subject_coordstruct_c.csv
+
+time python main.py --model_file adapted_subject_d.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname coordstruct_test_toks.txt --test --words --nopp > subject_coordstruct_d.csv
+
+time python main.py --model_file adapted_subject_e.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname coordstruct_test_toks.txt --test --words --nopp > subject_coordstruct_e.csv
+
+time python main.py --model_file adapted_subject_a.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname complexnp_test_toks.txt --test --words --nopp > subject_complexnp_a.csv
+
+time python main.py --model_file adapted_subject_b.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname complexnp_test_toks.txt --test --words --nopp > subject_complexnp_b.csv
+
+time python main.py --model_file adapted_subject_c.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname complexnp_test_toks.txt --test --words --nopp > subject_complexnp_c.csv
+
+time python main.py --model_file adapted_subject_d.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname complexnp_test_toks.txt --test --words --nopp > subject_complexnp_d.csv
+
+time python main.py --model_file adapted_subject_e.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname complexnp_test_toks.txt --test --words --nopp > subject_complexnp_e.csv
+
+time python main.py --model_file adapted_subject_a.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname bridge_test_toks.txt --test --words --nopp > subject_bridge_a.csv
+
+time python main.py --model_file adapted_subject_b.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname bridge_test_toks.txt --test --words --nopp > subject_bridge_b.csv
+
+time python main.py --model_file adapted_subject_c.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname bridge_test_toks.txt --test --words --nopp > subject_bridge_c.csv
+
+time python main.py --model_file adapted_subject_d.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname bridge_test_toks.txt --test --words --nopp > subject_bridge_d.csv
+
+time python main.py --model_file adapted_subject_e.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname bridge_test_toks.txt --test --words --nopp > subject_bridge_e.csv
+
+
+time python main.py --model_file adapted_leftbranch_a.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname adjunct_test_toks.txt --test --words --nopp > leftbranch_adjunct_a.csv
+
+time python main.py --model_file adapted_leftbranch_b.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname adjunct_test_toks.txt --test --words --nopp > leftbranch_adjunct_b.csv
+
+time python main.py --model_file adapted_leftbranch_c.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname adjunct_test_toks.txt --test --words --nopp > leftbranch_adjunct_c.csv
+
+time python main.py --model_file adapted_leftbranch_d.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname adjunct_test_toks.txt --test --words --nopp > leftbranch_adjunct_d.csv
+
+time python main.py --model_file adapted_leftbranch_e.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname adjunct_test_toks.txt --test --words --nopp > leftbranch_adjunct_e.csv
+
+time python main.py --model_file adapted_leftbranch_a.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname wh_test_toks.txt --test --words --nopp > leftbranch_wh_a.csv
+
+time python main.py --model_file adapted_leftbranch_b.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname wh_test_toks.txt --test --words --nopp > leftbranch_wh_b.csv
+
+time python main.py --model_file adapted_leftbranch_c.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname wh_test_toks.txt --test --words --nopp > leftbranch_wh_c.csv
+
+time python main.py --model_file adapted_leftbranch_d.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname wh_test_toks.txt --test --words --nopp > leftbranch_wh_d.csv
+
+time python main.py --model_file adapted_leftbranch_e.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname wh_test_toks.txt --test --words --nopp > leftbranch_wh_e.csv
+
+time python main.py --model_file adapted_leftbranch_a.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname subject_test_toks.txt --test --words --nopp > leftbranch_subject_a.csv
+
+time python main.py --model_file adapted_leftbranch_b.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname subject_test_toks.txt --test --words --nopp > leftbranch_subject_b.csv
+
+time python main.py --model_file adapted_leftbranch_c.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname subject_test_toks.txt --test --words --nopp > leftbranch_subject_c.csv
+
+time python main.py --model_file adapted_leftbranch_d.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname subject_test_toks.txt --test --words --nopp > leftbranch_subject_d.csv
+
+time python main.py --model_file adapted_leftbranch_e.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname subject_test_toks.txt --test --words --nopp > leftbranch_subject_e.csv
+
+time python main.py --model_file adapted_leftbranch_a.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname object_test_toks.txt --test --words --nopp > leftbranch_object_a.csv
+
+time python main.py --model_file adapted_leftbranch_b.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname object_test_toks.txt --test --words --nopp > leftbranch_object_b.csv
+
+time python main.py --model_file adapted_leftbranch_c.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname object_test_toks.txt --test --words --nopp > leftbranch_object_c.csv
+
+time python main.py --model_file adapted_leftbranch_d.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname object_test_toks.txt --test --words --nopp > leftbranch_object_d.csv
+
+time python main.py --model_file adapted_leftbranch_e.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname object_test_toks.txt --test --words --nopp > leftbranch_object_e.csv
+
+time python main.py --model_file adapted_leftbranch_a.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname leftbranch_test_toks.txt --test --words --nopp > leftbranch_leftbranch_a.csv
+
+time python main.py --model_file adapted_leftbranch_b.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname leftbranch_test_toks.txt --test --words --nopp > leftbranch_leftbranch_b.csv
+
+time python main.py --model_file adapted_leftbranch_c.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname leftbranch_test_toks.txt --test --words --nopp > leftbranch_leftbranch_c.csv
+
+time python main.py --model_file adapted_leftbranch_d.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname leftbranch_test_toks.txt --test --words --nopp > leftbranch_leftbranch_d.csv
+
+time python main.py --model_file adapted_leftbranch_e.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname leftbranch_test_toks.txt --test --words --nopp > leftbranch_leftbranch_e.csv
+
+time python main.py --model_file adapted_leftbranch_a.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname coordstruct_test_toks.txt --test --words --nopp > leftbranch_coordstruct_a.csv
+
+time python main.py --model_file adapted_leftbranch_b.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname coordstruct_test_toks.txt --test --words --nopp > leftbranch_coordstruct_b.csv
+
+time python main.py --model_file adapted_leftbranch_c.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname coordstruct_test_toks.txt --test --words --nopp > leftbranch_coordstruct_c.csv
+
+time python main.py --model_file adapted_leftbranch_d.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname coordstruct_test_toks.txt --test --words --nopp > leftbranch_coordstruct_d.csv
+
+time python main.py --model_file adapted_leftbranch_e.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname coordstruct_test_toks.txt --test --words --nopp > leftbranch_coordstruct_e.csv
+
+time python main.py --model_file adapted_leftbranch_a.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname complexnp_test_toks.txt --test --words --nopp > leftbranch_complexnp_a.csv
+
+time python main.py --model_file adapted_leftbranch_b.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname complexnp_test_toks.txt --test --words --nopp > leftbranch_complexnp_b.csv
+
+time python main.py --model_file adapted_leftbranch_c.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname complexnp_test_toks.txt --test --words --nopp > leftbranch_complexnp_c.csv
+
+time python main.py --model_file adapted_leftbranch_d.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname complexnp_test_toks.txt --test --words --nopp > leftbranch_complexnp_d.csv
+
+time python main.py --model_file adapted_leftbranch_e.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname complexnp_test_toks.txt --test --words --nopp > leftbranch_complexnp_e.csv
+
+time python main.py --model_file adapted_leftbranch_a.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname bridge_test_toks.txt --test --words --nopp > leftbranch_bridge_a.csv
+
+time python main.py --model_file adapted_leftbranch_b.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname bridge_test_toks.txt --test --words --nopp > leftbranch_bridge_b.csv
+
+time python main.py --model_file adapted_leftbranch_c.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname bridge_test_toks.txt --test --words --nopp > leftbranch_bridge_c.csv
+
+time python main.py --model_file adapted_leftbranch_d.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname bridge_test_toks.txt --test --words --nopp > leftbranch_bridge_d.csv
+
+time python main.py --model_file adapted_leftbranch_e.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname bridge_test_toks.txt --test --words --nopp > leftbranch_bridge_e.csv
+
+
+time python main.py --model_file adapted_coordstruct_a.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname adjunct_test_toks.txt --test --words --nopp > coordstruct_adjunct_a.csv
+
+time python main.py --model_file adapted_coordstruct_b.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname adjunct_test_toks.txt --test --words --nopp > coordstruct_adjunct_b.csv
+
+time python main.py --model_file adapted_coordstruct_c.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname adjunct_test_toks.txt --test --words --nopp > coordstruct_adjunct_c.csv
+
+time python main.py --model_file adapted_coordstruct_d.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname adjunct_test_toks.txt --test --words --nopp > coordstruct_adjunct_d.csv
+
+time python main.py --model_file adapted_coordstruct_e.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname adjunct_test_toks.txt --test --words --nopp > coordstruct_adjunct_e.csv
+
+time python main.py --model_file adapted_coordstruct_a.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname wh_test_toks.txt --test --words --nopp > coordstruct_wh_a.csv
+
+time python main.py --model_file adapted_coordstruct_b.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname wh_test_toks.txt --test --words --nopp > coordstruct_wh_b.csv
+
+time python main.py --model_file adapted_coordstruct_c.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname wh_test_toks.txt --test --words --nopp > coordstruct_wh_c.csv
+
+time python main.py --model_file adapted_coordstruct_d.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname wh_test_toks.txt --test --words --nopp > coordstruct_wh_d.csv
+
+time python main.py --model_file adapted_coordstruct_e.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname wh_test_toks.txt --test --words --nopp > coordstruct_wh_e.csv
+
+time python main.py --model_file adapted_coordstruct_a.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname subject_test_toks.txt --test --words --nopp > coordstruct_subject_a.csv
+
+time python main.py --model_file adapted_coordstruct_b.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname subject_test_toks.txt --test --words --nopp > coordstruct_subject_b.csv
+
+time python main.py --model_file adapted_coordstruct_c.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname subject_test_toks.txt --test --words --nopp > coordstruct_subject_c.csv
+
+time python main.py --model_file adapted_coordstruct_d.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname subject_test_toks.txt --test --words --nopp > coordstruct_subject_d.csv
+
+time python main.py --model_file adapted_coordstruct_e.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname subject_test_toks.txt --test --words --nopp > coordstruct_subject_e.csv
+
+time python main.py --model_file adapted_coordstruct_a.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname object_test_toks.txt --test --words --nopp > coordstruct_object_a.csv
+
+time python main.py --model_file adapted_coordstruct_b.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname object_test_toks.txt --test --words --nopp > coordstruct_object_b.csv
+
+time python main.py --model_file adapted_coordstruct_c.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname object_test_toks.txt --test --words --nopp > coordstruct_object_c.csv
+
+time python main.py --model_file adapted_coordstruct_d.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname object_test_toks.txt --test --words --nopp > coordstruct_object_d.csv
+
+time python main.py --model_file adapted_coordstruct_e.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname object_test_toks.txt --test --words --nopp > coordstruct_object_e.csv
+
+time python main.py --model_file adapted_coordstruct_a.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname leftbranch_test_toks.txt --test --words --nopp > coordstruct_leftbranch_a.csv
+
+time python main.py --model_file adapted_coordstruct_b.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname leftbranch_test_toks.txt --test --words --nopp > coordstruct_leftbranch_b.csv
+
+time python main.py --model_file adapted_coordstruct_c.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname leftbranch_test_toks.txt --test --words --nopp > coordstruct_leftbranch_c.csv
+
+time python main.py --model_file adapted_coordstruct_d.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname leftbranch_test_toks.txt --test --words --nopp > coordstruct_leftbranch_d.csv
+
+time python main.py --model_file adapted_coordstruct_e.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname leftbranch_test_toks.txt --test --words --nopp > coordstruct_leftbranch_e.csv
+
+time python main.py --model_file adapted_coordstruct_a.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname coordstruct_test_toks.txt --test --words --nopp > coordstruct_coordstruct_a.csv
+
+time python main.py --model_file adapted_coordstruct_b.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname coordstruct_test_toks.txt --test --words --nopp > coordstruct_coordstruct_b.csv
+
+time python main.py --model_file adapted_coordstruct_c.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname coordstruct_test_toks.txt --test --words --nopp > coordstruct_coordstruct_c.csv
+
+time python main.py --model_file adapted_coordstruct_d.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname coordstruct_test_toks.txt --test --words --nopp > coordstruct_coordstruct_d.csv
+
+time python main.py --model_file adapted_coordstruct_e.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname coordstruct_test_toks.txt --test --words --nopp > coordstruct_coordstruct_e.csv
+
+time python main.py --model_file adapted_coordstruct_a.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname complexnp_test_toks.txt --test --words --nopp > coordstruct_complexnp_a.csv
+
+time python main.py --model_file adapted_coordstruct_b.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname complexnp_test_toks.txt --test --words --nopp > coordstruct_complexnp_b.csv
+
+time python main.py --model_file adapted_coordstruct_c.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname complexnp_test_toks.txt --test --words --nopp > coordstruct_complexnp_c.csv
+
+time python main.py --model_file adapted_coordstruct_d.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname complexnp_test_toks.txt --test --words --nopp > coordstruct_complexnp_d.csv
+
+time python main.py --model_file adapted_coordstruct_e.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname complexnp_test_toks.txt --test --words --nopp > coordstruct_complexnp_e.csv
+
+time python main.py --model_file adapted_coordstruct_a.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname bridge_test_toks.txt --test --words --nopp > coordstruct_bridge_a.csv
+
+time python main.py --model_file adapted_coordstruct_b.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname bridge_test_toks.txt --test --words --nopp > coordstruct_bridge_b.csv
+
+time python main.py --model_file adapted_coordstruct_c.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname bridge_test_toks.txt --test --words --nopp > coordstruct_bridge_c.csv
+
+time python main.py --model_file adapted_coordstruct_d.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname bridge_test_toks.txt --test --words --nopp > coordstruct_bridge_d.csv
+
+time python main.py --model_file adapted_coordstruct_e.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname bridge_test_toks.txt --test --words --nopp > coordstruct_bridge_e.csv
+
+
+time python main.py --model_file adapted_complexnp_a.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname adjunct_test_toks.txt --test --words --nopp > complexnp_adjunct_a.csv
+
+time python main.py --model_file adapted_complexnp_b.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname adjunct_test_toks.txt --test --words --nopp > complexnp_adjunct_b.csv
+
+time python main.py --model_file adapted_complexnp_c.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname adjunct_test_toks.txt --test --words --nopp > complexnp_adjunct_c.csv
+
+time python main.py --model_file adapted_complexnp_d.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname adjunct_test_toks.txt --test --words --nopp > complexnp_adjunct_d.csv
+
+time python main.py --model_file adapted_complexnp_e.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname adjunct_test_toks.txt --test --words --nopp > complexnp_adjunct_e.csv
+
+time python main.py --model_file adapted_complexnp_a.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname wh_test_toks.txt --test --words --nopp > complexnp_wh_a.csv
+
+time python main.py --model_file adapted_complexnp_b.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname wh_test_toks.txt --test --words --nopp > complexnp_wh_b.csv
+
+time python main.py --model_file adapted_complexnp_c.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname wh_test_toks.txt --test --words --nopp > complexnp_wh_c.csv
+
+time python main.py --model_file adapted_complexnp_d.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname wh_test_toks.txt --test --words --nopp > complexnp_wh_d.csv
+
+time python main.py --model_file adapted_complexnp_e.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname wh_test_toks.txt --test --words --nopp > complexnp_wh_e.csv
+
+time python main.py --model_file adapted_complexnp_a.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname subject_test_toks.txt --test --words --nopp > complexnp_subject_a.csv
+
+time python main.py --model_file adapted_complexnp_b.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname subject_test_toks.txt --test --words --nopp > complexnp_subject_b.csv
+
+time python main.py --model_file adapted_complexnp_c.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname subject_test_toks.txt --test --words --nopp > complexnp_subject_c.csv
+
+time python main.py --model_file adapted_complexnp_d.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname subject_test_toks.txt --test --words --nopp > complexnp_subject_d.csv
+
+time python main.py --model_file adapted_complexnp_e.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname subject_test_toks.txt --test --words --nopp > complexnp_subject_e.csv
+
+time python main.py --model_file adapted_complexnp_a.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname object_test_toks.txt --test --words --nopp > complexnp_object_a.csv
+
+time python main.py --model_file adapted_complexnp_b.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname object_test_toks.txt --test --words --nopp > complexnp_object_b.csv
+
+time python main.py --model_file adapted_complexnp_c.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname object_test_toks.txt --test --words --nopp > complexnp_object_c.csv
+
+time python main.py --model_file adapted_complexnp_d.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname object_test_toks.txt --test --words --nopp > complexnp_object_d.csv
+
+time python main.py --model_file adapted_complexnp_e.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname object_test_toks.txt --test --words --nopp > complexnp_object_e.csv
+
+time python main.py --model_file adapted_complexnp_a.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname leftbranch_test_toks.txt --test --words --nopp > complexnp_leftbranch_a.csv
+
+time python main.py --model_file adapted_complexnp_b.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname leftbranch_test_toks.txt --test --words --nopp > complexnp_leftbranch_b.csv
+
+time python main.py --model_file adapted_complexnp_c.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname leftbranch_test_toks.txt --test --words --nopp > complexnp_leftbranch_c.csv
+
+time python main.py --model_file adapted_complexnp_d.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname leftbranch_test_toks.txt --test --words --nopp > complexnp_leftbranch_d.csv
+
+time python main.py --model_file adapted_complexnp_e.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname leftbranch_test_toks.txt --test --words --nopp > complexnp_leftbranch_e.csv
+
+time python main.py --model_file adapted_complexnp_a.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname coordstruct_test_toks.txt --test --words --nopp > complexnp_coordstruct_a.csv
+
+time python main.py --model_file adapted_complexnp_b.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname coordstruct_test_toks.txt --test --words --nopp > complexnp_coordstruct_b.csv
+
+time python main.py --model_file adapted_complexnp_c.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname coordstruct_test_toks.txt --test --words --nopp > complexnp_coordstruct_c.csv
+
+time python main.py --model_file adapted_complexnp_d.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname coordstruct_test_toks.txt --test --words --nopp > complexnp_coordstruct_d.csv
+
+time python main.py --model_file adapted_complexnp_e.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname coordstruct_test_toks.txt --test --words --nopp > complexnp_coordstruct_e.csv
+
+time python main.py --model_file adapted_complexnp_a.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname complexnp_test_toks.txt --test --words --nopp > complexnp_complexnp_a.csv
+
+time python main.py --model_file adapted_complexnp_b.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname complexnp_test_toks.txt --test --words --nopp > complexnp_complexnp_b.csv
+
+time python main.py --model_file adapted_complexnp_c.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname complexnp_test_toks.txt --test --words --nopp > complexnp_complexnp_c.csv
+
+time python main.py --model_file adapted_complexnp_d.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname complexnp_test_toks.txt --test --words --nopp > complexnp_complexnp_d.csv
+
+time python main.py --model_file adapted_complexnp_e.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname complexnp_test_toks.txt --test --words --nopp > complexnp_complexnp_e.csv
+
+time python main.py --model_file adapted_complexnp_a.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname bridge_test_toks.txt --test --words --nopp > complexnp_bridge_a.csv
+
+time python main.py --model_file adapted_complexnp_b.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname bridge_test_toks.txt --test --words --nopp > complexnp_bridge_b.csv
+
+time python main.py --model_file adapted_complexnp_c.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname bridge_test_toks.txt --test --words --nopp > complexnp_bridge_c.csv
+
+time python main.py --model_file adapted_complexnp_d.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname bridge_test_toks.txt --test --words --nopp > complexnp_bridge_d.csv
+
+time python main.py --model_file adapted_complexnp_e.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname bridge_test_toks.txt --test --words --nopp > complexnp_bridge_e.csv
+
+
+time python main.py --model_file adapted_bridge_a.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname adjunct_test_toks.txt --test --words --nopp > bridge_adjunct_a.csv
+
+time python main.py --model_file adapted_bridge_b.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname adjunct_test_toks.txt --test --words --nopp > bridge_adjunct_b.csv
+
+time python main.py --model_file adapted_bridge_c.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname adjunct_test_toks.txt --test --words --nopp > bridge_adjunct_c.csv
+
+time python main.py --model_file adapted_bridge_d.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname adjunct_test_toks.txt --test --words --nopp > bridge_adjunct_d.csv
+
+time python main.py --model_file adapted_bridge_e.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname adjunct_test_toks.txt --test --words --nopp > bridge_adjunct_e.csv
+
+time python main.py --model_file adapted_bridge_a.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname wh_test_toks.txt --test --words --nopp > bridge_wh_a.csv
+
+time python main.py --model_file adapted_bridge_b.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname wh_test_toks.txt --test --words --nopp > bridge_wh_b.csv
+
+time python main.py --model_file adapted_bridge_c.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname wh_test_toks.txt --test --words --nopp > bridge_wh_c.csv
+
+time python main.py --model_file adapted_bridge_d.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname wh_test_toks.txt --test --words --nopp > bridge_wh_d.csv
+
+time python main.py --model_file adapted_bridge_e.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname wh_test_toks.txt --test --words --nopp > bridge_wh_e.csv
+
+time python main.py --model_file adapted_bridge_a.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname subject_test_toks.txt --test --words --nopp > bridge_subject_a.csv
+
+time python main.py --model_file adapted_bridge_b.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname subject_test_toks.txt --test --words --nopp > bridge_subject_b.csv
+
+time python main.py --model_file adapted_bridge_c.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname subject_test_toks.txt --test --words --nopp > bridge_subject_c.csv
+
+time python main.py --model_file adapted_bridge_d.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname subject_test_toks.txt --test --words --nopp > bridge_subject_d.csv
+
+time python main.py --model_file adapted_bridge_e.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname subject_test_toks.txt --test --words --nopp > bridge_subject_e.csv
+
+time python main.py --model_file adapted_bridge_a.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname object_test_toks.txt --test --words --nopp > bridge_object_a.csv
+
+time python main.py --model_file adapted_bridge_b.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname object_test_toks.txt --test --words --nopp > bridge_object_b.csv
+
+time python main.py --model_file adapted_bridge_c.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname object_test_toks.txt --test --words --nopp > bridge_object_c.csv
+
+time python main.py --model_file adapted_bridge_d.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname object_test_toks.txt --test --words --nopp > bridge_object_d.csv
+
+time python main.py --model_file adapted_bridge_e.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname object_test_toks.txt --test --words --nopp > bridge_object_e.csv
+
+time python main.py --model_file adapted_bridge_a.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname leftbranch_test_toks.txt --test --words --nopp > bridge_leftbranch_a.csv
+
+time python main.py --model_file adapted_bridge_b.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname leftbranch_test_toks.txt --test --words --nopp > bridge_leftbranch_b.csv
+
+time python main.py --model_file adapted_bridge_c.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname leftbranch_test_toks.txt --test --words --nopp > bridge_leftbranch_c.csv
+
+time python main.py --model_file adapted_bridge_d.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname leftbranch_test_toks.txt --test --words --nopp > bridge_leftbranch_d.csv
+
+time python main.py --model_file adapted_bridge_e.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname leftbranch_test_toks.txt --test --words --nopp > bridge_leftbranch_e.csv
+
+time python main.py --model_file adapted_bridge_a.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname coordstruct_test_toks.txt --test --words --nopp > bridge_coordstruct_a.csv
+
+time python main.py --model_file adapted_bridge_b.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname coordstruct_test_toks.txt --test --words --nopp > bridge_coordstruct_b.csv
+
+time python main.py --model_file adapted_bridge_c.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname coordstruct_test_toks.txt --test --words --nopp > bridge_coordstruct_c.csv
+
+time python main.py --model_file adapted_bridge_d.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname coordstruct_test_toks.txt --test --words --nopp > bridge_coordstruct_d.csv
+
+time python main.py --model_file adapted_bridge_e.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname coordstruct_test_toks.txt --test --words --nopp > bridge_coordstruct_e.csv
+
+time python main.py --model_file adapted_bridge_a.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname complexnp_test_toks.txt --test --words --nopp > bridge_complexnp_a.csv
+
+time python main.py --model_file adapted_bridge_b.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname complexnp_test_toks.txt --test --words --nopp > bridge_complexnp_b.csv
+
+time python main.py --model_file adapted_bridge_c.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname complexnp_test_toks.txt --test --words --nopp > bridge_complexnp_c.csv
+
+time python main.py --model_file adapted_bridge_d.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname complexnp_test_toks.txt --test --words --nopp > bridge_complexnp_d.csv
+
+time python main.py --model_file adapted_bridge_e.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname complexnp_test_toks.txt --test --words --nopp > bridge_complexnp_e.csv
+
+time python main.py --model_file adapted_bridge_a.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname bridge_test_toks.txt --test --words --nopp > bridge_bridge_a.csv
+
+time python main.py --model_file adapted_bridge_b.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname bridge_test_toks.txt --test --words --nopp > bridge_bridge_b.csv
+
+time python main.py --model_file adapted_bridge_c.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname bridge_test_toks.txt --test --words --nopp > bridge_bridge_c.csv
+
+time python main.py --model_file adapted_bridge_d.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname bridge_test_toks.txt --test --words --nopp > bridge_bridge_d.csv
+
+time python main.py --model_file adapted_bridge_e.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname bridge_test_toks.txt --test --words --nopp > bridge_bridge_e.csv
+
+
+time python main.py --model_file adapted_subject_a.pt --vocab_file zenodo_vocab.txt --data_dir ./ --testfname adjunct_test_toks.txt --test --words --nopp > subject_adjunct_a.csv
+
+
+
+
+
+
+
+
+
