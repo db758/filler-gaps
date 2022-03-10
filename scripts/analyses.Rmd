@@ -1,5 +1,5 @@
 ---
-title: Using Priming to Uncover the Organization of Syntactic Representations in Neural Language Models
+title: Filler-Gaps
 output: github_document
 ---
 
@@ -57,7 +57,7 @@ data_summary <- function(data, varname, groupnames, ci = TRUE){
 }
 
 ```
-
+## This section only for D-linking analyses
 
 ```{r}
 
@@ -81,7 +81,7 @@ data_summary <- function(data, varname, groupnames, ci = TRUE){
 
 ```
 
-## Set up
+## Set up (non-D-linking analyses)
 ### Load in data from trained models
 ```{r, cache = TRUE}
 
@@ -651,7 +651,7 @@ colnames(all_analysis1) <- c('intercept.est', 'structure.est', 'intercept.se','s
 all_analysis1$struc <- strucs
 
 print(paste(all_analysis1$struc, all_analysis1$structure, round(all_analysis1$structure.est, 3), round(all_analysis1$structure.se, 3), all_analysis1$structure.pval))
-#stop here
+#filler gaps stop here
 ``` 
 
 
