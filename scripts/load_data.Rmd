@@ -155,7 +155,7 @@ post_summary_no.unk <- data_summary(subset(post, word != '<unk>'), 'post_surp', 
 
 saveRDS(pre_summary_no.unk, '../shuffled_link_pre_list_summary_no.unk.Rda')
 saveRDS(post_summary_no.unk, '../shuffled_link_post_list_summary_no.unk.Rda')
-#stop here
+#filler gaps stop here
 
 ```
 
