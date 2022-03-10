@@ -13,7 +13,7 @@ unable to upload any .pt models from zenodo due to size limits
 --> type 2 refers to the structure that the model was tested on e.g. wh in the above example.  
 --> letter (a/b/c/d/e) corresponds to one of the five zenodo models used in training.  
 
-can ignore files in /test_results/ within /outputs/
+can ignore files in /test_results/ within /outputs/ to start. these are non-adapted surprisals. will be used in -load_data-.
 
 can ignore files in /outputs/ named in the following way: (shuffled)_adapted_type_letter.csv e.g. adapted_adjunct_a.csv
 
