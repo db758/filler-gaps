@@ -12,3 +12,5 @@ unable to upload any .pt models from zenodo due to size limits
 --> type1 refers to the structure that the model was adapted/trained on
 --> type 2 refers to the structure that the model was tested on
 --> letter (a/b/c/d/e) corresponds to one of the five zenodo models used in training.
+
+can ignore files in /test_results/ within /outputs/
